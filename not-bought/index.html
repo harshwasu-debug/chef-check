@@ -276,7 +276,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
 <script id="seed" type="application/json">
 {
  "brand": "Not Bought - Follow Up",
- "store": "chef-check-not-bought-20260905-v2",
+ "store": "chef-check-not-bought-20260905-v3",
  "replies": [],
  "entries": [
   {
@@ -581,6 +581,44 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
    ],
    "asks": [
     "Is it the same tortilla for the egg wraps?"
+   ]
+  },
+  {
+   "id": "e10",
+   "cat": "Pack sizes",
+   "short": "Pita Bread pack",
+   "title": "Pita Bread - how many pieces in one pack?",
+   "blocks": [
+    {
+     "name": "Pita Bread - Alarz Arabic Bread Big, from Speedway",
+     "yield": "One pack",
+     "note": "The bill says 3.10 per pack. The office needs the number of pieces to price one pita. The 5 below is the office's guess.",
+     "rows": [
+      {
+       "item": "Pita Bread - pieces in one pack",
+       "qty": 5,
+       "uom": "Piece",
+       "wastage": 0
+      }
+     ]
+    }
+   ],
+   "problem": "You said the Arabic bread from Speedway is our pita. The bill gives a price per pack, not per piece. Every dish uses pita by the piece.",
+   "options": [
+    {
+     "k": "A",
+     "l": "Checked. The amounts are right.",
+     "d": "No change is needed. The office will use the figures as they are."
+    },
+    {
+     "k": "B",
+     "l": "Changed. I have edited the amounts above.",
+     "d": "Press Change amounts, correct the figures, then pick this."
+    }
+   ],
+   "asks": [
+    "What does one piece weigh, in grams?",
+    "Which dishes use pita?"
    ]
   }
  ]

@@ -275,197 +275,168 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
      ========================================================= -->
 <script id="seed" type="application/json">
 {
- "brand": "Quick Taps - 6 Sept",
- "store": "chef-check-closed-questions-20260906-v1",
+ "brand": "Where Do We Buy It - 6 Sept",
+ "store": "chef-check-closed-questions-20260906-v2",
  "replies": [],
  "entries": [
   {
    "id": "q1",
    "cat": "Fresh Mozzarella",
-   "short": "Caprese cheese",
-   "title": "The Caprese and Pesto Toast - which cheese goes on it?",
+   "short": "Mozzarella - who",
+   "title": "Fresh mozzarella - who delivers it?",
    "blocks": [],
-   "problem": "You said the dishes do use fresh mozzarella balls. The office buys only shredded. This one tap settles it.",
+   "problem": "The office read all 8,310 scanned bill pages. Every mozzarella line says SHREDDED. Not one bill anywhere has fresh mozzarella. The office needs to know whose bill to look for.",
+   "warn": "Until a bill is found, any dish with fresh mozzarella is costed at zero for that line.",
    "options": [
     {
      "k": "A",
-     "l": "Fresh mozzarella balls, in water.",
-     "d": "Soft white balls in a tub of liquid."
+     "l": "Safco / Sawhney",
+     "d": "The Safco van."
     },
     {
      "k": "B",
-     "l": "Shredded mozzarella, from a bag.",
-     "d": "The same bag used on other dishes."
+     "l": "MH Enterprises",
+     "d": ""
     },
     {
      "k": "C",
-     "l": "Cheddar or another cheese.",
-     "d": "The office will ask which one next."
+     "l": "Sidco Foods",
+     "d": ""
+    },
+    {
+     "k": "D",
+     "l": "Sharif Hassan (Shali)",
+     "d": ""
+    },
+    {
+     "k": "E",
+     "l": "Green Basket",
+     "d": "The daily vegetable van."
+    },
+    {
+     "k": "F",
+     "l": "Taste Masters",
+     "d": ""
+    },
+    {
+     "k": "G",
+     "l": "Chef Middle East",
+     "d": ""
+    },
+    {
+     "k": "X",
+     "l": "Nobody delivers it. Somebody buys it in a shop with cash.",
+     "d": "There is no delivery note. The office will treat it as a cash buy."
+    },
+    {
+     "k": "Y",
+     "l": "We do not use fresh mozzarella after all.",
+     "d": "The office will take it off the list."
     },
     {
      "k": "Z",
-     "l": "I need to check in the store room.",
-     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+     "l": "I do not know.",
+     "d": "Tap this rather than guess. The office will find another way."
     }
    ]
   },
   {
    "id": "q2",
    "cat": "Fresh Mozzarella",
-   "short": "Who brings it",
-   "title": "Fresh mozzarella balls - who brings them?",
+   "short": "Mozzarella - pack",
+   "title": "Fresh mozzarella - what is on the pack?",
    "blocks": [],
-   "problem": "Only needed if you tapped A on the last question. If you tapped B or C, tap the last option here.",
+   "problem": "The office pays for a pack and costs the dish by the gram. This is the number that joins the two.",
    "options": [
     {
      "k": "A",
-     "l": "Safco",
-     "d": "Sawhney Foodstuff. Delivers most of the cheese."
+     "l": "125 g",
+     "d": "One small ball."
     },
     {
      "k": "B",
-     "l": "MH Enterprises",
-     "d": "The MH van."
+     "l": "250 g",
+     "d": ""
     },
     {
      "k": "C",
-     "l": "Sidco Foods",
-     "d": "Frozen and chilled."
+     "l": "500 g",
+     "d": ""
     },
     {
      "k": "D",
-     "l": "Sharif Hassan (Shali)",
-     "d": "Hotel and catering supplies."
+     "l": "1 kg",
+     "d": ""
     },
     {
      "k": "E",
-     "l": "Green Basket",
-     "d": "The daily vegetable van."
-    },
-    {
-     "k": "F",
-     "l": "Nobody delivers it. Someone buys it in a shop.",
-     "d": "Cash purchase, no delivery note."
+     "l": "2 kg or bigger",
+     "d": ""
     },
     {
      "k": "Y",
-     "l": "Not needed. We do not use fresh mozzarella.",
-     "d": "You tapped B or C on the last question."
+     "l": "Not needed. We do not use it.",
+     "d": ""
     },
     {
      "k": "Z",
-     "l": "I need to check in the store room.",
-     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+     "l": "I do not know.",
+     "d": "Tap this rather than guess. The office will find another way."
     }
    ]
   },
   {
    "id": "q3",
-   "cat": "Fresh Mozzarella",
-   "short": "Ball size",
-   "title": "Fresh mozzarella - what size is one ball or one tub?",
+   "cat": "Coconut",
+   "short": "Coconut - same item?",
+   "title": "Is Kingsway Desicated Coconut the coconut we put on the acai bowl?",
    "blocks": [],
-   "problem": "The office needs the pack size to work out the price for one gram.",
+   "problem": "The office found a bill. Sharif Hassan sold us Kingsway Desicated Coconut at 13.00 a kilo on 11 October 2025. The recipe calls the same line Coconut Flakes. If they are one thing, the office can price it today.",
    "options": [
     {
      "k": "A",
-     "l": "125 g ball",
-     "d": "The small single ball."
+     "l": "Yes. That is the same coconut.",
+     "d": "The office will price Coconut Flakes at 13.00 a kilo."
     },
     {
      "k": "B",
-     "l": "250 g tub",
-     "d": ""
-    },
-    {
-     "k": "C",
-     "l": "500 g tub",
-     "d": ""
-    },
-    {
-     "k": "D",
-     "l": "1 kg tub",
-     "d": ""
-    },
-    {
-     "k": "Y",
-     "l": "Not needed. We do not use fresh mozzarella.",
-     "d": ""
+     "l": "No. Ours is a different coconut product.",
+     "d": "The office will ask who delivers it next."
     },
     {
      "k": "Z",
-     "l": "I need to check in the store room.",
-     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+     "l": "I do not know.",
+     "d": "Tap this rather than guess. The office will find another way."
     }
    ]
   },
   {
    "id": "q4",
-   "cat": "Acai Bowl Topping",
-   "short": "White topping",
-   "title": "The acai bowl - what is the white topping?",
+   "cat": "Coconut",
+   "short": "Coconut - who",
+   "title": "The coconut on the acai bowl - who delivers it?",
    "blocks": [],
-   "problem": "You said something else goes on top instead of coconut flakes. Tap what is in the tub on the topping shelf.",
+   "problem": "Only needed if you tapped B on the last question.",
    "options": [
     {
      "k": "A",
-     "l": "Desiccated coconut. Fine, powdery.",
-     "d": "Like the coconut used in sweets."
-    },
-    {
-     "k": "B",
-     "l": "Coconut chips or flakes. Wide, flat pieces.",
-     "d": ""
-    },
-    {
-     "k": "C",
-     "l": "Sliced or flaked almonds.",
-     "d": ""
-    },
-    {
-     "k": "D",
-     "l": "White chocolate pieces.",
-     "d": ""
-    },
-    {
-     "k": "E",
-     "l": "Nothing white goes on it.",
-     "d": "The office will remove the line from the recipe."
-    },
-    {
-     "k": "Z",
-     "l": "I need to check in the store room.",
-     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
-    }
-   ]
-  },
-  {
-   "id": "q5",
-   "cat": "Acai Bowl Topping",
-   "short": "Who brings it",
-   "title": "That white topping - who brings it?",
-   "blocks": [],
-   "problem": "Only needed if you picked A, B, C or D on the last question.",
-   "options": [
-    {
-     "k": "A",
-     "l": "Safco",
-     "d": "Sawhney Foodstuff. Delivers most of the cheese."
+     "l": "Safco / Sawhney",
+     "d": "The Safco van."
     },
     {
      "k": "B",
      "l": "MH Enterprises",
-     "d": "The MH van."
+     "d": ""
     },
     {
      "k": "C",
      "l": "Sidco Foods",
-     "d": "Frozen and chilled."
+     "d": ""
     },
     {
      "k": "D",
      "l": "Sharif Hassan (Shali)",
-     "d": "Hotel and catering supplies."
+     "d": ""
     },
     {
      "k": "E",
@@ -474,108 +445,103 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
     },
     {
      "k": "F",
-     "l": "Nobody delivers it. Someone buys it in a shop.",
-     "d": "Cash purchase, no delivery note."
-    },
-    {
-     "k": "Y",
-     "l": "Not needed. Nothing white goes on it.",
+     "l": "Taste Masters",
      "d": ""
     },
     {
+     "k": "G",
+     "l": "Chef Middle East",
+     "d": ""
+    },
+    {
+     "k": "X",
+     "l": "Nobody delivers it. Somebody buys it in a shop with cash.",
+     "d": "There is no delivery note. The office will treat it as a cash buy."
+    },
+    {
+     "k": "Y",
+     "l": "Not needed. It is the Kingsway one.",
+     "d": "You tapped A on the last question."
+    },
+    {
      "k": "Z",
-     "l": "I need to check in the store room.",
-     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+     "l": "I do not know.",
+     "d": "Tap this rather than guess. The office will find another way."
+    }
+   ]
+  },
+  {
+   "id": "q5",
+   "cat": "No bill anywhere",
+   "short": "Calamari - who",
+   "title": "Breaded calamari rings - who delivers them?",
+   "blocks": [],
+   "problem": "No scanned bill mentions calamari or breaded squid rings. Not one page in 8,310. The office needs a supplier name to hunt for.",
+   "options": [
+    {
+     "k": "A",
+     "l": "Safco / Sawhney",
+     "d": "The Safco van."
+    },
+    {
+     "k": "B",
+     "l": "MH Enterprises",
+     "d": ""
+    },
+    {
+     "k": "C",
+     "l": "Sidco Foods",
+     "d": ""
+    },
+    {
+     "k": "D",
+     "l": "Sharif Hassan (Shali)",
+     "d": ""
+    },
+    {
+     "k": "E",
+     "l": "Green Basket",
+     "d": "The daily vegetable van."
+    },
+    {
+     "k": "F",
+     "l": "Taste Masters",
+     "d": ""
+    },
+    {
+     "k": "G",
+     "l": "Chef Middle East",
+     "d": ""
+    },
+    {
+     "k": "X",
+     "l": "Nobody delivers it. Somebody buys it in a shop with cash.",
+     "d": "There is no delivery note. The office will treat it as a cash buy."
+    },
+    {
+     "k": "Y",
+     "l": "Nobody. We do not buy breaded rings.",
+     "d": "The office will take it off the list. Plain squid tubes stay."
+    },
+    {
+     "k": "Z",
+     "l": "I do not know.",
+     "d": "Tap this rather than guess. The office will find another way."
     }
    ]
   },
   {
    "id": "q6",
-   "cat": "Breaded Squid",
-   "short": "Which dish",
-   "title": "Which dish has breaded squid?",
+   "cat": "No bill anywhere",
+   "short": "Almond milk - who",
+   "title": "Almond milk - which shop or supplier?",
    "blocks": [],
-   "problem": "You said we bread the squid tubes ourselves for a dish. These are every dish that uses squid today. Tap the one that is breaded and fried.",
-   "options": [
-    {
-     "k": "A",
-     "l": "Ojingeo Deopbap",
-     "d": "Korean squid rice bowl. 150 g of squid."
-    },
-    {
-     "k": "B",
-     "l": "Jjamppong or Jjamppong Bap",
-     "d": "Korean spicy seafood noodle. 50 g of squid."
-    },
-    {
-     "k": "C",
-     "l": "Jjajangmyeon",
-     "d": "Korean black bean noodle. 80 g of squid."
-    },
-    {
-     "k": "D",
-     "l": "Tom Yum Soup or Creamy Tom Yum",
-     "d": "Poke brands. 30 g of squid."
-    },
-    {
-     "k": "E",
-     "l": "None of these. No dish is breaded today.",
-     "d": "The office will take the item off the list."
-    },
-    {
-     "k": "Z",
-     "l": "I need to check in the store room.",
-     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
-    }
-   ]
-  },
-  {
-   "id": "q7",
-   "cat": "Breaded Squid",
-   "short": "The coating",
-   "title": "Breaded squid - what is the coating?",
-   "blocks": [],
-   "problem": "Only needed if you picked a dish on the last question. The office costs the coating separately.",
-   "options": [
-    {
-     "k": "A",
-     "l": "Flour, egg, then panko breadcrumbs.",
-     "d": "The usual three-step coating."
-    },
-    {
-     "k": "B",
-     "l": "Tempura batter mix only.",
-     "d": ""
-    },
-    {
-     "k": "C",
-     "l": "Cornflour only.",
-     "d": ""
-    },
-    {
-     "k": "Y",
-     "l": "Not needed. No dish is breaded.",
-     "d": ""
-    },
-    {
-     "k": "Z",
-     "l": "I need to check in the store room.",
-     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
-    }
-   ]
-  },
-  {
-   "id": "q8",
-   "cat": "Almond Milk",
-   "short": "Which shop",
-   "title": "Almond milk - which shop does it come from?",
-   "blocks": [],
-   "problem": "You said someone buys it in a shop with cash. The office has bills from Speedway Mini Mart already, for Arabic bread and vanilla essence.",
+   "problem": "No scanned bill mentions almond milk. You said last time that somebody buys it with cash. The office already holds cash bills from Speedway Mini Mart for Arabic bread and vanilla essence.",
    "options": [
     {
      "k": "A",
      "l": "Speedway Mini Mart",
-     "d": "The shop that also sells us the Arabic bread."
+     "d": "The shop that sells us the Arabic bread."
     },
     {
      "k": "B",
@@ -589,93 +555,223 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
     },
     {
      "k": "D",
-     "l": "Union Coop or another supermarket",
+     "l": "Another supermarket",
      "d": ""
     },
     {
      "k": "E",
-     "l": "It is delivered by a supplier after all.",
-     "d": "The office will look for the delivery note."
+     "l": "A supplier delivers it with a bill after all.",
+     "d": "The office will hunt the delivery note."
+    },
+    {
+     "k": "Y",
+     "l": "We do not use it.",
+     "d": "The office will take it off the list."
     },
     {
      "k": "Z",
-     "l": "I need to check in the store room.",
-     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+     "l": "I do not know.",
+     "d": "Tap this rather than guess. The office will find another way."
+    }
+   ]
+  },
+  {
+   "id": "q7",
+   "cat": "No bill anywhere",
+   "short": "Almond milk - pack",
+   "title": "Almond milk - what size is one carton?",
+   "blocks": [],
+   "problem": "The office pays for a carton and costs the dish by the millilitre.",
+   "options": [
+    {
+     "k": "A",
+     "l": "1 litre",
+     "d": ""
+    },
+    {
+     "k": "B",
+     "l": "946 ml",
+     "d": "The American size."
+    },
+    {
+     "k": "C",
+     "l": "500 ml",
+     "d": ""
+    },
+    {
+     "k": "D",
+     "l": "250 ml",
+     "d": ""
+    },
+    {
+     "k": "Y",
+     "l": "Not needed. We do not use it.",
+     "d": ""
+    },
+    {
+     "k": "Z",
+     "l": "I do not know.",
+     "d": "Tap this rather than guess. The office will find another way."
+    }
+   ]
+  },
+  {
+   "id": "q8",
+   "cat": "No bill anywhere",
+   "short": "Biscoff - who",
+   "title": "Lotus Biscoff biscuits and spread - who delivers them?",
+   "blocks": [],
+   "problem": "No scanned bill mentions Biscoff or Lotus. You said the dish is on hold. The office still needs the source for when it comes back.",
+   "options": [
+    {
+     "k": "A",
+     "l": "Safco / Sawhney",
+     "d": "The Safco van."
+    },
+    {
+     "k": "B",
+     "l": "MH Enterprises",
+     "d": ""
+    },
+    {
+     "k": "C",
+     "l": "Sidco Foods",
+     "d": ""
+    },
+    {
+     "k": "D",
+     "l": "Sharif Hassan (Shali)",
+     "d": ""
+    },
+    {
+     "k": "E",
+     "l": "Green Basket",
+     "d": "The daily vegetable van."
+    },
+    {
+     "k": "F",
+     "l": "Taste Masters",
+     "d": ""
+    },
+    {
+     "k": "G",
+     "l": "Chef Middle East",
+     "d": ""
+    },
+    {
+     "k": "X",
+     "l": "Nobody delivers it. Somebody buys it in a shop with cash.",
+     "d": "There is no delivery note. The office will treat it as a cash buy."
+    },
+    {
+     "k": "Y",
+     "l": "Nobody. It was always bought in a shop, or never bought.",
+     "d": "The office will keep it off the list."
+    },
+    {
+     "k": "Z",
+     "l": "I do not know.",
+     "d": "Tap this rather than guess. The office will find another way."
     }
    ]
   },
   {
    "id": "q9",
-   "cat": "Almond Milk",
-   "short": "Pack size",
-   "title": "Almond milk - what size is one carton?",
+   "cat": "No bill anywhere",
+   "short": "Passion fruit - who",
+   "title": "Passion fruit - who delivers it?",
    "blocks": [],
-   "problem": "The office needs the size to work out the price for one millilitre.",
+   "problem": "No scanned bill mentions passion fruit. Green Basket brings the fruit and vegetables, so it would normally be on their note.",
    "options": [
     {
      "k": "A",
-     "l": "1 litre carton",
-     "d": "The tall carton."
+     "l": "Safco / Sawhney",
+     "d": "The Safco van."
     },
     {
      "k": "B",
-     "l": "946 ml carton",
-     "d": "The American size."
+     "l": "MH Enterprises",
+     "d": ""
     },
     {
      "k": "C",
-     "l": "500 ml carton",
+     "l": "Sidco Foods",
      "d": ""
     },
     {
      "k": "D",
-     "l": "250 ml carton",
+     "l": "Sharif Hassan (Shali)",
      "d": ""
     },
     {
+     "k": "E",
+     "l": "Green Basket",
+     "d": "The daily vegetable van."
+    },
+    {
+     "k": "F",
+     "l": "Taste Masters",
+     "d": ""
+    },
+    {
+     "k": "G",
+     "l": "Chef Middle East",
+     "d": ""
+    },
+    {
+     "k": "X",
+     "l": "Nobody delivers it. Somebody buys it in a shop with cash.",
+     "d": "There is no delivery note. The office will treat it as a cash buy."
+    },
+    {
+     "k": "Y",
+     "l": "Nobody. We do not buy it.",
+     "d": "The office will keep it off the list."
+    },
+    {
      "k": "Z",
-     "l": "I need to check in the store room.",
-     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+     "l": "I do not know.",
+     "d": "Tap this rather than guess. The office will find another way."
     }
    ]
   },
   {
    "id": "q10",
-   "cat": "Pita Bread",
-   "short": "Pieces per pack",
-   "title": "Pita bread - how many pieces are in one pack?",
+   "cat": "Pack size",
+   "short": "Pita per pack",
+   "title": "Pita bread - how many pieces in one pack?",
    "blocks": [],
-   "problem": "Please open one pack of Alarz Arabic Bread Big and count the pieces. The office pays 3.10 for one pack. Right now the app guesses 6.",
+   "problem": "The office pays Speedway 3.10 for one pack of Alarz Arabic Bread Big. Please open a pack and count. Each answer below shows what one pita would then cost.",
    "options": [
     {
      "k": "A",
      "l": "4 pieces",
-     "d": "The pack costs 0.78 each."
+     "d": "0.78 each."
     },
     {
      "k": "B",
      "l": "5 pieces",
-     "d": "The pack costs 0.62 each."
+     "d": "0.62 each."
     },
     {
      "k": "C",
      "l": "6 pieces",
-     "d": "The pack costs 0.52 each. This is what the app uses now."
+     "d": "0.52 each. This is the figure the app uses now."
     },
     {
      "k": "D",
      "l": "8 pieces",
-     "d": "The pack costs 0.39 each."
+     "d": "0.39 each."
     },
     {
      "k": "E",
      "l": "10 pieces",
-     "d": "The pack costs 0.31 each."
+     "d": "0.31 each."
     },
     {
      "k": "Z",
-     "l": "I need to check in the store room.",
-     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+     "l": "I do not know.",
+     "d": "Tap this rather than guess. The office will find another way."
     }
    ]
   }
@@ -877,7 +973,7 @@ function renderCard(){
     (asks.length ? '<ul class="asks">' + asks.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>" : "") +
     '<div class="answer"><h3>Your answer</h3>' +
       (options.length ? '<div class="opts">' + optHtml + "</div>" : "") +
-      '<textarea class="note-in" id="note" placeholder="Only if you want to add something. The office does not need this box.">' +
+      '<textarea class="note-in" id="note" placeholder="Only if you want to add something. Every answer above is a tap. The office needs nothing typed here.">' +
       esc(a.note) + "</textarea></div>" +
     (last ? saveBarHtml() + inboxHtml() : "") +
     '<div class="navrow">' +

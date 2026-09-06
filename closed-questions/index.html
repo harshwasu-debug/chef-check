@@ -1,0 +1,1090 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chef Check Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="gf" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;600&display=swap">
+<style id="css">
+:root{
+  --ground:#F6F7F4; --panel:#FFFFFF; --panel-2:#EFF1EC;
+  --ink:#1C201B; --ink-2:#4C534A; --ink-3:#79806F;
+  --line:#DFE3DB; --line-soft:#E9ECE5;
+  --accent:#B33A2B; --accent-ink:#FFFFFF; --accent-wash:#F7E5E1;
+  --ok:#4A7C59; --ok-ink:#FFFFFF; --ok-wash:#E4EEE6;
+  --warn:#9A6B1E; --warn-wash:#F7ECD8;
+  --shadow:0 1px 2px rgba(28,32,27,.05),0 8px 24px -14px rgba(28,32,27,.28);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#151714; --panel:#1D201B; --panel-2:#252923;
+    --ink:#ECEFE8; --ink-2:#B4BCAE; --ink-3:#8B9384;
+    --line:#2F332B; --line-soft:#272B24;
+    --accent:#E27A63; --accent-ink:#2A120C; --accent-wash:#37211B;
+    --ok:#84B491; --ok-ink:#12200F; --ok-wash:#1E2C22;
+    --warn:#D8A54F; --warn-wash:#2F2718;
+    --shadow:0 1px 2px rgba(0,0,0,.45),0 10px 28px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#151714; --panel:#1D201B; --panel-2:#252923;
+  --ink:#ECEFE8; --ink-2:#B4BCAE; --ink-3:#8B9384;
+  --line:#2F332B; --line-soft:#272B24;
+  --accent:#E27A63; --accent-ink:#2A120C; --accent-wash:#37211B;
+  --ok:#84B491; --ok-ink:#12200F; --ok-wash:#1E2C22;
+  --warn:#D8A54F; --warn-wash:#2F2718;
+  --shadow:0 1px 2px rgba(0,0,0,.45),0 10px 28px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%;
+}
+h1,h2,h3{font-family:"Bricolage Grotesque","Source Sans 3",sans-serif;margin:0;text-wrap:balance}
+button,input,select,textarea{font:inherit;color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.masthead{
+  border-bottom:1px solid var(--line);background:var(--panel);
+  padding:11px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+}
+.mark{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:15px;letter-spacing:.13em;text-transform:uppercase}
+.mark span{color:var(--accent)}
+.masthead .sub{color:var(--ink-3);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;margin-right:auto}
+.ghost{
+  background:none;border:1px solid var(--line);border-radius:7px;padding:9px 14px;
+  font-size:13.5px;font-weight:600;cursor:pointer;color:var(--ink-2);min-height:40px;
+}
+.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.ghost[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.ghost[disabled]{opacity:.45;cursor:default}
+.ghost[disabled]:hover{border-color:var(--line);color:var(--ink-2)}
+.solid{
+  background:var(--accent);border:1px solid var(--accent);color:var(--accent-ink);
+  border-radius:7px;padding:9px 16px;font-size:13.5px;font-weight:600;cursor:pointer;min-height:40px;
+}
+
+.shell{display:grid;grid-template-columns:300px minmax(0,1fr);gap:22px;max-width:1180px;margin:0 auto;padding:22px 20px 60px;align-items:start}
+.index{background:var(--panel);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow);position:sticky;top:16px;overflow:hidden}
+.search-wrap{padding:11px;border-bottom:1px solid var(--line);display:flex;gap:8px}
+#search{
+  flex:1 1 auto;min-width:0;padding:11px 13px;border:1px solid var(--line);
+  border-radius:8px;background:var(--panel-2);font-size:16px;
+}
+#search::placeholder{color:var(--ink-3)}
+#jump{display:none}
+.idx-top{padding:10px 13px;border-bottom:1px solid var(--line);color:var(--ink-3);font-size:13px}
+.idx-top b{color:var(--ink);font-weight:600}
+.index-scroll{max-height:66vh;overflow-y:auto;padding:7px}
+.idx-h{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding:11px 9px 5px}
+.q-btn{
+  display:flex;gap:9px;align-items:center;width:100%;text-align:left;background:none;
+  border:none;border-radius:8px;padding:11px 10px;cursor:pointer;font-size:15px;color:var(--ink-2);min-height:44px;
+}
+.q-btn:hover{background:var(--panel-2)}
+.q-btn[aria-current="true"]{background:var(--accent-wash);color:var(--ink);font-weight:600}
+.dot{width:8px;height:8px;border-radius:50%;flex:0 0 auto;background:transparent;border:1px solid var(--line)}
+.q-btn.answered .dot{background:var(--ok);border-color:var(--ok)}
+.q-btn .qn{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);flex:0 0 auto}
+.q-btn .nm{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow);overflow:hidden}
+.card-head{display:flex;gap:14px;align-items:flex-start;padding:18px 20px 14px;flex-wrap:wrap}
+.head-text{flex:1 1 240px;min-width:0}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+.card-head h1{font-size:clamp(21px,3.4vw,27px);font-weight:700;letter-spacing:-.015em}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.chip{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;background:var(--panel-2);color:var(--ink-3);padding:3px 8px;border-radius:4px}
+.chip-answered{background:var(--ok-wash);color:var(--ok)}
+.chip-edited{background:var(--warn-wash);color:var(--warn)}
+.head-tools{display:flex;gap:7px;flex-wrap:wrap}
+.banner{margin:0 20px 12px;padding:10px 13px;background:var(--panel-2);border-left:3px solid var(--accent);border-radius:0 7px 7px 0;font-size:14.5px;color:var(--ink-2)}
+.warnbar{margin:0 20px 12px;padding:10px 13px;background:var(--warn-wash);border-left:3px solid var(--warn);border-radius:0 7px 7px 0;font-size:14.5px;color:var(--ink-2)}
+
+.block{margin:0 20px 14px;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.block-head{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;padding:11px 13px;background:var(--panel-2);border-bottom:1px solid var(--line)}
+.block-head h3{font-size:15.5px;font-weight:600}
+.block-head .yield{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);margin-left:auto}
+.block-note{padding:10px 13px 0;margin:0;font-size:14.5px;color:var(--ink-2)}
+.table-wrap{overflow-x:auto;padding:0 3px 4px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line-soft);font-size:15px;text-align:left;vertical-align:middle}
+th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:500;border-bottom:1px solid var(--line)}
+tbody tr:last-child td{border-bottom:none}
+td.c-num,th.c-num{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.c-uom,th.c-uom{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-3);width:1%;white-space:nowrap}
+td.c-waste,th.c-waste{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-3);text-align:right;white-space:nowrap;width:1%}
+td.c-act,th.c-act{width:1%;white-space:nowrap}
+tr.done td{color:var(--ink-3);text-decoration:line-through}
+.sf-tag{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.08em;background:var(--ok-wash);color:var(--ok);padding:2px 5px;border-radius:3px;margin-left:6px;vertical-align:middle}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointer}
+.cell-in{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:7px;background:var(--panel-2);font-size:16px}
+.cell-in.num{text-align:right;font-family:"IBM Plex Mono",monospace;max-width:120px}
+.row-del{background:none;border:1px solid var(--line);border-radius:7px;color:var(--ink-3);font-size:19px;line-height:1;cursor:pointer;width:38px;height:38px}
+.row-del:hover{border-color:var(--accent);color:var(--accent)}
+.add-btn{background:none;border:1px dashed var(--line);border-radius:8px;padding:11px 13px;font-size:14.5px;font-weight:600;color:var(--ink-2);cursor:pointer;width:100%;min-height:44px}
+.add-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.asks{margin:0 20px 14px;padding:0 0 0 20px;color:var(--ink-2);font-size:15px;display:flex;flex-direction:column;gap:6px}
+.answer{margin:0 20px 16px;border:1px solid var(--line);border-radius:9px;padding:13px}
+.answer h3{font-size:13px;font-family:"IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-bottom:10px}
+.opts{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;background:var(--panel)}
+.opt:hover{border-color:var(--accent)}
+.opt.sel{border-color:var(--accent);background:var(--accent-wash)}
+.opt input{margin:3px 0 0;width:20px;height:20px;accent-color:var(--accent);flex:0 0 auto}
+.opt .ol{font-weight:600}
+.opt .od{display:block;color:var(--ink-2);font-size:14.5px;font-weight:400}
+.note-in{width:100%;min-height:92px;padding:11px;border:1px solid var(--line);border-radius:8px;background:var(--panel-2);font-size:16px;resize:vertical}
+.card-foot{display:flex;gap:14px;justify-content:space-between;flex-wrap:wrap;padding:13px 20px 18px;border-top:1px solid var(--line);color:var(--ink-3);font-size:13px}
+.navrow{display:flex;gap:10px;justify-content:space-between;padding:0 20px 18px}
+.navrow .ghost,.navrow .solid{flex:1 1 0;min-height:46px}
+
+/* the save bar */
+.savebar{
+  margin:0 20px 18px;padding:15px;border:1px solid var(--ok);
+  background:var(--ok-wash);border-radius:10px;display:flex;flex-direction:column;gap:10px;
+}
+.savebar p{margin:0;font-size:15px;color:var(--ink-2)}
+.savebar input{
+  width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;
+  background:var(--panel);font-size:16px;
+}
+.save-btn{
+  background:var(--ok);border:1px solid var(--ok);color:var(--ok-ink);
+  border-radius:8px;padding:14px 18px;font-size:16px;font-weight:700;
+  cursor:pointer;min-height:52px;width:100%;
+}
+.save-btn:hover{filter:brightness(1.06)}
+.save-btn[disabled]{opacity:.55;cursor:default}
+.save-msg{font-size:14.5px;min-height:21px;font-weight:600}
+.save-msg.good{color:var(--ok)}
+.save-msg.bad{color:var(--accent)}
+
+/* what the office sees */
+.inbox{margin:0 20px 18px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.inbox-head{padding:12px 14px;background:var(--panel-2);border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.inbox-head h3{font-size:15px;font-weight:600}
+.inbox-head .when{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);margin-left:auto}
+.sub-item{padding:12px 14px;border-bottom:1px solid var(--line-soft)}
+.sub-item:last-child{border-bottom:none}
+.sub-item .who{font-weight:600;font-size:15px}
+.sub-item .what{margin:4px 0 0;font-size:14.5px;color:var(--ink-2);white-space:pre-wrap}
+.sub-empty{padding:14px;color:var(--ink-3);font-size:14.5px}
+
+@media (max-width:880px){
+  .shell{grid-template-columns:1fr;gap:14px;padding:14px 12px 40px}
+  .index{position:sticky;top:0;z-index:20;border-radius:10px}
+  .index-scroll,.idx-top{display:none}
+  .search-wrap{border-bottom:none}
+  #jump{
+    display:block;flex:1 1 130px;min-width:0;padding:11px 10px;border:1px solid var(--line);
+    border-radius:8px;background:var(--panel-2);font-size:16px;
+  }
+  .card-head{padding:16px 15px 12px}
+  .banner,.warnbar,.block,.asks,.answer,.savebar,.inbox{margin-left:15px;margin-right:15px}
+  .navrow,.card-foot{padding-left:15px;padding-right:15px}
+}
+
+@media (max-width:640px){
+  .masthead{padding:10px 14px;gap:7px}
+  .masthead .sub{width:100%;order:3;margin:0}
+  .card-head h1{font-size:21px}
+  .table-wrap{overflow-x:visible;padding:0}
+
+  table,tbody,tr,td{display:block;width:100%}
+  thead{display:none}
+  td{border:none;padding:0}
+  tbody tr{
+    border-bottom:1px solid var(--line-soft);padding:11px 13px;
+    display:grid;grid-template-columns:24px minmax(0,1fr) auto;
+    gap:2px 10px;align-items:center;
+  }
+  tbody tr:last-child{border-bottom:none}
+
+  tr.r-read .c-act{grid-column:1;grid-row:1}
+  tr.r-read .c-item{grid-column:2;grid-row:1;font-size:15.5px;line-height:1.3}
+  tr.r-read .c-num{grid-column:3;grid-row:1;font-size:16px;font-weight:600;color:var(--ink)}
+  tr.r-read .c-waste{grid-column:2/4;grid-row:2;text-align:left;font-size:12px}
+  tr.r-read .c-waste:empty{display:none}
+
+  tr.r-edit{grid-template-columns:1fr;gap:8px;padding:13px}
+  tr.r-edit td{display:flex;align-items:center;gap:10px}
+  tr.r-edit td::before{
+    content:attr(data-label);flex:0 0 62px;
+    font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-3);
+  }
+  tr.r-edit .c-act{justify-content:flex-end}
+  tr.r-edit .c-act::before{content:"";flex:0}
+  tr.r-edit .cell-in.num{max-width:none}
+
+  .add-row td{padding:11px 13px}
+  .add-row td::before{content:""!important;flex:0!important}
+
+  .navrow{
+    position:sticky;bottom:0;background:var(--panel);
+    border-top:1px solid var(--line);padding:11px 15px;margin-top:4px;
+  }
+}
+
+@media print{
+  .masthead,.index,.card-foot,.head-tools,.c-act,.navrow,.savebar{display:none}
+  .shell{grid-template-columns:1fr;padding:0;max-width:none}
+  .card{border:0;box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="app">
+<header class="masthead">
+  <div class="mark">Chef<span>&middot;</span>Check</div>
+  <div class="sub" id="brand-label">Brand</div>
+  <button class="ghost" id="theme-btn" type="button">Dark mode</button>
+</header>
+
+<div class="shell">
+  <nav class="index" aria-label="Dish list">
+    <div class="search-wrap">
+      <input id="search" type="search" placeholder="Search a dish or ingredient" autocomplete="off" aria-label="Search dishes">
+      <select id="jump" aria-label="Jump to a dish"></select>
+    </div>
+    <div class="idx-top">Done <b id="prog">0 of 0</b></div>
+    <div class="index-scroll" id="q-list"></div>
+  </nav>
+  <main class="card" id="card" aria-live="polite"></main>
+</div>
+</div>
+
+<!-- =========================================================
+     SHEET DATA - the only part that changes per brand.
+
+     brand    shown top right
+     store    unique key for the phone's own draft. Change it
+              for every new sheet.
+     entries  the dishes and questions
+     replies  filled in by chefs. Leave [] on a new sheet.
+
+     Rows are written in Kg / L / Piece to match the master
+     file. The sheet shows g and ml and converts back on save.
+     ========================================================= -->
+<script id="seed" type="application/json">
+{
+ "brand": "Quick Taps - 6 Sept",
+ "store": "chef-check-closed-questions-20260906-v1",
+ "replies": [],
+ "entries": [
+  {
+   "id": "q1",
+   "cat": "Fresh Mozzarella",
+   "short": "Caprese cheese",
+   "title": "The Caprese and Pesto Toast - which cheese goes on it?",
+   "blocks": [],
+   "problem": "You said the dishes do use fresh mozzarella balls. The office buys only shredded. This one tap settles it.",
+   "options": [
+    {
+     "k": "A",
+     "l": "Fresh mozzarella balls, in water.",
+     "d": "Soft white balls in a tub of liquid."
+    },
+    {
+     "k": "B",
+     "l": "Shredded mozzarella, from a bag.",
+     "d": "The same bag used on other dishes."
+    },
+    {
+     "k": "C",
+     "l": "Cheddar or another cheese.",
+     "d": "The office will ask which one next."
+    },
+    {
+     "k": "Z",
+     "l": "I need to check in the store room.",
+     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+    }
+   ]
+  },
+  {
+   "id": "q2",
+   "cat": "Fresh Mozzarella",
+   "short": "Who brings it",
+   "title": "Fresh mozzarella balls - who brings them?",
+   "blocks": [],
+   "problem": "Only needed if you tapped A on the last question. If you tapped B or C, tap the last option here.",
+   "options": [
+    {
+     "k": "A",
+     "l": "Safco",
+     "d": "Sawhney Foodstuff. Delivers most of the cheese."
+    },
+    {
+     "k": "B",
+     "l": "MH Enterprises",
+     "d": "The MH van."
+    },
+    {
+     "k": "C",
+     "l": "Sidco Foods",
+     "d": "Frozen and chilled."
+    },
+    {
+     "k": "D",
+     "l": "Sharif Hassan (Shali)",
+     "d": "Hotel and catering supplies."
+    },
+    {
+     "k": "E",
+     "l": "Green Basket",
+     "d": "The daily vegetable van."
+    },
+    {
+     "k": "F",
+     "l": "Nobody delivers it. Someone buys it in a shop.",
+     "d": "Cash purchase, no delivery note."
+    },
+    {
+     "k": "Y",
+     "l": "Not needed. We do not use fresh mozzarella.",
+     "d": "You tapped B or C on the last question."
+    },
+    {
+     "k": "Z",
+     "l": "I need to check in the store room.",
+     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+    }
+   ]
+  },
+  {
+   "id": "q3",
+   "cat": "Fresh Mozzarella",
+   "short": "Ball size",
+   "title": "Fresh mozzarella - what size is one ball or one tub?",
+   "blocks": [],
+   "problem": "The office needs the pack size to work out the price for one gram.",
+   "options": [
+    {
+     "k": "A",
+     "l": "125 g ball",
+     "d": "The small single ball."
+    },
+    {
+     "k": "B",
+     "l": "250 g tub",
+     "d": ""
+    },
+    {
+     "k": "C",
+     "l": "500 g tub",
+     "d": ""
+    },
+    {
+     "k": "D",
+     "l": "1 kg tub",
+     "d": ""
+    },
+    {
+     "k": "Y",
+     "l": "Not needed. We do not use fresh mozzarella.",
+     "d": ""
+    },
+    {
+     "k": "Z",
+     "l": "I need to check in the store room.",
+     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+    }
+   ]
+  },
+  {
+   "id": "q4",
+   "cat": "Acai Bowl Topping",
+   "short": "White topping",
+   "title": "The acai bowl - what is the white topping?",
+   "blocks": [],
+   "problem": "You said something else goes on top instead of coconut flakes. Tap what is in the tub on the topping shelf.",
+   "options": [
+    {
+     "k": "A",
+     "l": "Desiccated coconut. Fine, powdery.",
+     "d": "Like the coconut used in sweets."
+    },
+    {
+     "k": "B",
+     "l": "Coconut chips or flakes. Wide, flat pieces.",
+     "d": ""
+    },
+    {
+     "k": "C",
+     "l": "Sliced or flaked almonds.",
+     "d": ""
+    },
+    {
+     "k": "D",
+     "l": "White chocolate pieces.",
+     "d": ""
+    },
+    {
+     "k": "E",
+     "l": "Nothing white goes on it.",
+     "d": "The office will remove the line from the recipe."
+    },
+    {
+     "k": "Z",
+     "l": "I need to check in the store room.",
+     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+    }
+   ]
+  },
+  {
+   "id": "q5",
+   "cat": "Acai Bowl Topping",
+   "short": "Who brings it",
+   "title": "That white topping - who brings it?",
+   "blocks": [],
+   "problem": "Only needed if you picked A, B, C or D on the last question.",
+   "options": [
+    {
+     "k": "A",
+     "l": "Safco",
+     "d": "Sawhney Foodstuff. Delivers most of the cheese."
+    },
+    {
+     "k": "B",
+     "l": "MH Enterprises",
+     "d": "The MH van."
+    },
+    {
+     "k": "C",
+     "l": "Sidco Foods",
+     "d": "Frozen and chilled."
+    },
+    {
+     "k": "D",
+     "l": "Sharif Hassan (Shali)",
+     "d": "Hotel and catering supplies."
+    },
+    {
+     "k": "E",
+     "l": "Green Basket",
+     "d": "The daily vegetable van."
+    },
+    {
+     "k": "F",
+     "l": "Nobody delivers it. Someone buys it in a shop.",
+     "d": "Cash purchase, no delivery note."
+    },
+    {
+     "k": "Y",
+     "l": "Not needed. Nothing white goes on it.",
+     "d": ""
+    },
+    {
+     "k": "Z",
+     "l": "I need to check in the store room.",
+     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+    }
+   ]
+  },
+  {
+   "id": "q6",
+   "cat": "Breaded Squid",
+   "short": "Which dish",
+   "title": "Which dish has breaded squid?",
+   "blocks": [],
+   "problem": "You said we bread the squid tubes ourselves for a dish. These are every dish that uses squid today. Tap the one that is breaded and fried.",
+   "options": [
+    {
+     "k": "A",
+     "l": "Ojingeo Deopbap",
+     "d": "Korean squid rice bowl. 150 g of squid."
+    },
+    {
+     "k": "B",
+     "l": "Jjamppong or Jjamppong Bap",
+     "d": "Korean spicy seafood noodle. 50 g of squid."
+    },
+    {
+     "k": "C",
+     "l": "Jjajangmyeon",
+     "d": "Korean black bean noodle. 80 g of squid."
+    },
+    {
+     "k": "D",
+     "l": "Tom Yum Soup or Creamy Tom Yum",
+     "d": "Poke brands. 30 g of squid."
+    },
+    {
+     "k": "E",
+     "l": "None of these. No dish is breaded today.",
+     "d": "The office will take the item off the list."
+    },
+    {
+     "k": "Z",
+     "l": "I need to check in the store room.",
+     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+    }
+   ]
+  },
+  {
+   "id": "q7",
+   "cat": "Breaded Squid",
+   "short": "The coating",
+   "title": "Breaded squid - what is the coating?",
+   "blocks": [],
+   "problem": "Only needed if you picked a dish on the last question. The office costs the coating separately.",
+   "options": [
+    {
+     "k": "A",
+     "l": "Flour, egg, then panko breadcrumbs.",
+     "d": "The usual three-step coating."
+    },
+    {
+     "k": "B",
+     "l": "Tempura batter mix only.",
+     "d": ""
+    },
+    {
+     "k": "C",
+     "l": "Cornflour only.",
+     "d": ""
+    },
+    {
+     "k": "Y",
+     "l": "Not needed. No dish is breaded.",
+     "d": ""
+    },
+    {
+     "k": "Z",
+     "l": "I need to check in the store room.",
+     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+    }
+   ]
+  },
+  {
+   "id": "q8",
+   "cat": "Almond Milk",
+   "short": "Which shop",
+   "title": "Almond milk - which shop does it come from?",
+   "blocks": [],
+   "problem": "You said someone buys it in a shop with cash. The office has bills from Speedway Mini Mart already, for Arabic bread and vanilla essence.",
+   "options": [
+    {
+     "k": "A",
+     "l": "Speedway Mini Mart",
+     "d": "The shop that also sells us the Arabic bread."
+    },
+    {
+     "k": "B",
+     "l": "Carrefour",
+     "d": ""
+    },
+    {
+     "k": "C",
+     "l": "Lulu",
+     "d": ""
+    },
+    {
+     "k": "D",
+     "l": "Union Coop or another supermarket",
+     "d": ""
+    },
+    {
+     "k": "E",
+     "l": "It is delivered by a supplier after all.",
+     "d": "The office will look for the delivery note."
+    },
+    {
+     "k": "Z",
+     "l": "I need to check in the store room.",
+     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+    }
+   ]
+  },
+  {
+   "id": "q9",
+   "cat": "Almond Milk",
+   "short": "Pack size",
+   "title": "Almond milk - what size is one carton?",
+   "blocks": [],
+   "problem": "The office needs the size to work out the price for one millilitre.",
+   "options": [
+    {
+     "k": "A",
+     "l": "1 litre carton",
+     "d": "The tall carton."
+    },
+    {
+     "k": "B",
+     "l": "946 ml carton",
+     "d": "The American size."
+    },
+    {
+     "k": "C",
+     "l": "500 ml carton",
+     "d": ""
+    },
+    {
+     "k": "D",
+     "l": "250 ml carton",
+     "d": ""
+    },
+    {
+     "k": "Z",
+     "l": "I need to check in the store room.",
+     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+    }
+   ]
+  },
+  {
+   "id": "q10",
+   "cat": "Pita Bread",
+   "short": "Pieces per pack",
+   "title": "Pita bread - how many pieces are in one pack?",
+   "blocks": [],
+   "problem": "Please open one pack of Alarz Arabic Bread Big and count the pieces. The office pays 3.10 for one pack. Right now the app guesses 6.",
+   "options": [
+    {
+     "k": "A",
+     "l": "4 pieces",
+     "d": "The pack costs 0.78 each."
+    },
+    {
+     "k": "B",
+     "l": "5 pieces",
+     "d": "The pack costs 0.62 each."
+    },
+    {
+     "k": "C",
+     "l": "6 pieces",
+     "d": "The pack costs 0.52 each. This is what the app uses now."
+    },
+    {
+     "k": "D",
+     "l": "8 pieces",
+     "d": "The pack costs 0.39 each."
+    },
+    {
+     "k": "E",
+     "l": "10 pieces",
+     "d": "The pack costs 0.31 each."
+    },
+    {
+     "k": "Z",
+     "l": "I need to check in the store room.",
+     "d": "Tap this if you are not sure. Better than a guess. Send the sheet and tell the office."
+    }
+   ]
+  }
+ ]
+}
+</script>
+
+<script id="code">
+/* Captured before anything renders, so the page can rebuild itself. */
+
+var SEED = JSON.parse(document.getElementById("seed").textContent);
+var QS = SEED.entries;
+var MASTER = JSON.parse(JSON.stringify(QS));
+var REPLIES = Array.isArray(SEED.replies) ? SEED.replies : [];
+var STORE_KEY = SEED.store || "chef-check-v1";
+
+/* Units. The file holds Kg / L. The chef sees g / ml. */
+var UNITS = ["g","ml","Piece","Set","Portion"];
+function tidy(n){ return Number(n.toFixed(6)); }
+function toDisplay(r){
+  if(r.uom === "Kg") return { qty: tidy(r.qty * 1000), uom: "g" };
+  if(r.uom === "L")  return { qty: tidy(r.qty * 1000), uom: "ml" };
+  return { qty: r.qty, uom: r.uom };
+}
+function fromDisplay(qty, unit){
+  if(unit === "g")  return { qty: tidy(qty / 1000), uom: "Kg" };
+  if(unit === "ml") return { qty: tidy(qty / 1000), uom: "L" };
+  return { qty: qty, uom: unit };
+}
+
+var listEl = document.getElementById("q-list");
+var jumpEl = document.getElementById("jump");
+var cardEl = document.getElementById("card");
+var progEl = document.getElementById("prog");
+var searchEl = document.getElementById("search");
+var current = 0, editMode = false;
+var ANS = {};
+var CHEF = "";
+var API = "https://qogrhokcmyxbicihcckf.supabase.co/functions/v1/chef/closed-questions";  /* where the answers go */
+var saving = false;
+
+document.getElementById("brand-label").textContent = SEED.brand || "";
+
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+function num(v){ var n = parseFloat(v); return isFinite(n) && n >= 0 ? n : 0; }
+function ans(i){
+  var id = QS[i].id;
+  if(!ANS[id]) ANS[id] = {choice:"", note:""};
+  return ANS[id];
+}
+function isAnswered(i){ var a = ans(i); return !!a.choice || a.note.trim().length > 0; }
+function isEdited(i){ return JSON.stringify(QS[i].blocks) !== JSON.stringify(MASTER[i].blocks); }
+function hasSomething(i){ return isAnswered(i) || isEdited(i); }
+function doneCount(){ return QS.filter(function(q,i){ return hasSomething(i); }).length; }
+
+/* ---------- the phone's own draft, so nothing is lost ---------- */
+function loadDraft(){
+  var raw = null;
+  try { raw = window.localStorage.getItem(STORE_KEY); } catch(e){ return; }
+  if(!raw) return;
+  var s; try { s = JSON.parse(raw); } catch(e){ return; }
+  if(!s || typeof s !== "object") return;
+  if(typeof s.chef === "string") CHEF = s.chef;
+  if(s.answers && typeof s.answers === "object") ANS = s.answers;
+  if(s.blocks && typeof s.blocks === "object"){
+    QS.forEach(function(q){ if(Array.isArray(s.blocks[q.id])) q.blocks = s.blocks[q.id]; });
+  }
+}
+function saveDraft(){
+  var b = {};
+  QS.forEach(function(q,i){ if(isEdited(i)) b[q.id] = q.blocks; });
+  try { window.localStorage.setItem(STORE_KEY, JSON.stringify({chef:CHEF, answers:ANS, blocks:b})); } catch(e){}
+}
+
+function matches(q, term){
+  if(!term) return true;
+  if(q.short.toLowerCase().indexOf(term) !== -1) return true;
+  if(q.title.toLowerCase().indexOf(term) !== -1) return true;
+  if(q.cat.toLowerCase().indexOf(term) !== -1) return true;
+  if((q.problem || "").toLowerCase().indexOf(term) !== -1) return true;
+  return q.blocks.some(function(b){
+    if(b.name.toLowerCase().indexOf(term) !== -1) return true;
+    return b.rows.some(function(r){ return String(r.item).toLowerCase().indexOf(term) !== -1; });
+  });
+}
+
+function renderList(){
+  var term = (searchEl.value || "").trim().toLowerCase();
+  var html = "", jump = "", lastCat = null, shown = 0;
+  QS.forEach(function(q,i){
+    if(!matches(q, term)) return;
+    shown++;
+    if(q.cat !== lastCat){ html += '<div class="idx-h">' + esc(q.cat) + "</div>"; lastCat = q.cat; }
+    html += '<button class="q-btn' + (hasSomething(i) ? " answered" : "") + '" type="button" data-i="' + i +
+            '" aria-current="' + (i === current) + '"><span class="dot"></span><span class="qn">' + (i+1) +
+            '</span><span class="nm">' + esc(q.short) + "</span></button>";
+    jump += '<option value="' + i + '"' + (i === current ? " selected" : "") + ">" +
+            (hasSomething(i) ? "✓ " : "") + (i+1) + ". " + esc(q.short) + "</option>";
+  });
+  listEl.innerHTML = shown ? html : '<div class="idx-h">Nothing found</div>';
+  jumpEl.innerHTML = shown ? jump : "<option>Nothing found</option>";
+  progEl.textContent = doneCount() + " of " + QS.length;
+}
+
+function readRow(r){
+  var d = toDisplay(r);
+  return '<tr class="r-read">' +
+    '<td class="c-act"><input type="checkbox" aria-label="Checked ' + esc(r.item) + '"></td>' +
+    '<td class="c-item">' + esc(r.item) + (r.sf ? '<span class="sf-tag">SF</span>' : "") + "</td>" +
+    '<td class="c-num">' + d.qty + " " + esc(d.uom) + "</td>" +
+    '<td class="c-waste">' + (r.wastage ? "Wastage " + r.wastage + "%" : "") + "</td>" +
+  "</tr>";
+}
+function editRow(r, b, n){
+  var d = toDisplay(r);
+  var opts = UNITS.map(function(u){
+    return '<option value="' + u + '"' + (u === d.uom ? " selected" : "") + ">" + u + "</option>";
+  }).join("");
+  if(UNITS.indexOf(d.uom) === -1){
+    opts = '<option value="' + esc(d.uom) + '" selected>' + esc(d.uom) + "</option>" + opts;
+  }
+  return '<tr class="r-edit">' +
+    '<td class="c-act"><button class="row-del" type="button" data-b="' + b + '" data-del="' + n +
+      '" aria-label="Remove ' + esc(r.item) + '">&times;</button></td>' +
+    '<td data-label="Item"><input class="cell-in" data-f="item" data-b="' + b + '" data-n="' + n +
+      '" value="' + esc(r.item) + '" aria-label="Item name"></td>' +
+    '<td class="c-num" data-label="Amount"><input class="cell-in num" data-f="qty" data-b="' + b + '" data-n="' + n +
+      '" type="number" inputmode="decimal" step="any" min="0" value="' + d.qty + '" aria-label="Amount"></td>' +
+    '<td class="c-uom" data-label="Unit"><select class="cell-in" data-f="uom" data-b="' + b + '" data-n="' + n +
+      '" aria-label="Unit">' + opts + "</select></td>" +
+    '<td class="c-waste" data-label="Wastage"><input class="cell-in num" data-f="wastage" data-b="' + b + '" data-n="' + n +
+      '" type="number" inputmode="decimal" step="any" min="0" max="100" value="' + r.wastage + '" aria-label="Wastage percent"></td>' +
+  "</tr>";
+}
+function blockHtml(bl, b){
+  var rows = bl.rows.map(function(r,n){ return editMode ? editRow(r,b,n) : readRow(r); }).join("");
+  var add = editMode
+    ? '<tr class="add-row"><td colspan="5"><button class="add-btn" type="button" data-add="' + b + '">+ Add item</button></td></tr>'
+    : "";
+  var head = editMode
+    ? '<th class="c-act"><span class="sr">Remove</span></th><th>Item</th>' +
+      '<th class="c-num">Amount</th><th class="c-uom">Unit</th><th class="c-waste">Wastage</th>'
+    : '<th class="c-act"><span class="sr">Check</span></th><th>Item</th>' +
+      '<th class="c-num">Amount</th><th class="c-waste">Wastage</th>';
+  return '<section class="block">' +
+    '<div class="block-head"><h3>' + esc(bl.name) + "</h3>" +
+      (bl.yield ? '<span class="yield">' + esc(bl.yield) + "</span>" : "") + "</div>" +
+    (bl.note ? '<p class="block-note">' + esc(bl.note) + "</p>" : "") +
+    '<div class="table-wrap"><table><thead><tr>' + head +
+    "</tr></thead><tbody>" + rows + add + "</tbody></table></div></section>";
+}
+
+function inboxHtml(){
+  if(!REPLIES.length) return "";
+  var items = REPLIES.map(function(s){
+    return '<div class="sub-item"><div class="who">' + esc(s.chef || "Chef") +
+      '</div><p class="what">' + esc(s.text || "") + "</p></div>";
+  }).join("");
+  return '<section class="inbox"><div class="inbox-head"><h3>Answers already sent</h3>' +
+    '<span class="when">' + REPLIES.length + (REPLIES.length === 1 ? " chef" : " chefs") + "</span></div>" +
+    items + "</section>";
+}
+
+function renderCard(){
+  var q = QS[current];
+  if(!q){ cardEl.innerHTML = ""; return; }
+  var a = ans(current), edited = isEdited(current), answered = isAnswered(current);
+  var lines = q.blocks.reduce(function(t,b){ return t + b.rows.length; }, 0);
+  var options = q.options || [], asks = q.asks || [];
+  var last = current === QS.length - 1;
+
+  var optHtml = options.map(function(o){
+    return '<label class="opt' + (a.choice === o.k ? " sel" : "") + '">' +
+      '<input type="radio" name="opt-' + q.id + '" value="' + o.k + '"' + (a.choice === o.k ? " checked" : "") + ">" +
+      '<span><span class="ol">' + o.k + ". " + esc(o.l) + '</span><span class="od">' + esc(o.d) + "</span></span>" +
+    "</label>";
+  }).join("");
+
+  cardEl.innerHTML =
+    '<div class="card-head"><div class="head-text">' +
+      '<div class="eyebrow">' + (current+1) + " of " + QS.length + " &middot; " + esc(q.cat) + "</div>" +
+      "<h1>" + esc(q.title) + "</h1>" +
+      '<div class="chips">' +
+        '<span class="chip">' + lines + " lines</span>" +
+        '<span class="chip">g / ml</span>' +
+        (edited ? '<span class="chip chip-edited">Amounts changed</span>' : "") +
+        (answered ? '<span class="chip chip-answered">Answered</span>' : "") +
+      "</div></div>" +
+      '<div class="head-tools">' +
+        '<button class="ghost" id="edit-btn" type="button" aria-pressed="' + editMode + '">' +
+          (editMode ? "Done editing" : "Change amounts") + "</button>" +
+        (edited ? '<button class="ghost" id="reset-btn" type="button">Undo my changes</button>' : "") +
+      "</div></div>" +
+    (q.problem ? '<p class="banner">' + esc(q.problem) + "</p>" : "") +
+    (q.warn ? '<p class="warnbar">' + esc(q.warn) + "</p>" : "") +
+    (editMode ? '<p class="banner">Type the amount in g or ml. Change the unit or the wastage. Add lines. Remove lines.</p>' : "") +
+    q.blocks.map(blockHtml).join("") +
+    (asks.length ? '<ul class="asks">' + asks.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>" : "") +
+    '<div class="answer"><h3>Your answer</h3>' +
+      (options.length ? '<div class="opts">' + optHtml + "</div>" : "") +
+      '<textarea class="note-in" id="note" placeholder="Only if you want to add something. The office does not need this box.">' +
+      esc(a.note) + "</textarea></div>" +
+    (last ? saveBarHtml() + inboxHtml() : "") +
+    '<div class="navrow">' +
+      '<button class="ghost" id="prev-btn" type="button"' + (current === 0 ? " disabled" : "") + ">Previous</button>" +
+      '<button class="solid" id="next-btn" type="button">' + (last ? "Go to the top" : "Next") + "</button>" +
+    "</div>" +
+    '<div class="card-foot"><span>Tick each line as you read it.</span>' +
+    "<span>SF = made from its own recipe.</span></div>";
+}
+
+function saveBarHtml(){
+  return '<div class="savebar">' +
+    "<p>You have answered <b>" + doneCount() + " of " + QS.length + "</b>. " +
+      "Press the button and the office sees it. Nothing else to do.</p>" +
+    '<input id="chef-name" placeholder="Your name" value="' + esc(CHEF) +
+      '" autocomplete="name" aria-label="Your name">' +
+    '<button class="save-btn" id="save-btn" type="button">Send my answers to the office</button>' +
+    '<div class="save-msg" id="save-msg"></div>' +
+  "</div>";
+}
+
+function refresh(){ renderList(); renderCard(); }
+
+/* ---------- what one chef is sending ---------- */
+function entryText(q,i){
+  var a = ANS[q.id] || {choice:"", note:""};
+  var out = (i+1) + ". " + q.title;
+  if((q.options || []).length && a.choice){
+    q.options.forEach(function(o){ if(o.k === a.choice) out += "\n   Picked: " + o.k + ". " + o.l; });
+  }
+  if(a.note.trim()) out += "\n   Note: " + a.note.trim();
+  if(isEdited(i)){
+    out += "\n   Amounts changed:";
+    q.blocks.forEach(function(b,bi){
+      if(JSON.stringify(b) === JSON.stringify(MASTER[i].blocks[bi])) return;
+      b.rows.forEach(function(r,n){
+        var was = (MASTER[i].blocks[bi].rows || [])[n];
+        var now = toDisplay(r);
+        var line = "\n     " + r.item + ": " + now.qty + " " + now.uom + ", waste " + r.wastage + "%";
+        if(was){
+          var old = toDisplay(was);
+          if(was.item !== r.item || old.qty !== now.qty || old.uom !== now.uom || was.wastage !== r.wastage){
+            line += "   (was " + was.item + ": " + old.qty + " " + old.uom + ", waste " + was.wastage + "%)";
+          }
+        } else { line += "   (new line)"; }
+        out += line;
+      });
+    });
+  }
+  return out;
+}
+function myReply(){
+  var parts = [];
+  QS.forEach(function(q,i){ if(hasSomething(i)) parts.push(entryText(q,i)); });
+  return {
+    chef: CHEF.trim() || "Chef",
+    at: new Date().toISOString().slice(0,16).replace("T", " "),
+    answered: doneCount(),
+    of: QS.length,
+    blocks: QS.map(function(q){ return {id:q.id, blocks:q.blocks}; }),
+    answers: ANS,
+    text: parts.length ? parts.join("\n\n") : "Read it. Nothing to change."
+  };
+}
+
+function msg(text, good){
+  var el = document.getElementById("save-msg");
+  if(!el) return;
+  el.textContent = text;
+  el.className = "save-msg " + (good ? "good" : "bad");
+}
+
+function doSave(){
+  if(saving) return;
+  var btn = document.getElementById("save-btn");
+
+  if(!CHEF.trim()){
+    msg("Please write your name first.", false);
+    var nameBox = document.getElementById("chef-name");
+    if(nameBox) nameBox.focus();
+    return;
+  }
+
+  saving = true;
+  btn.disabled = true;
+  msg("Sending...", true);
+
+  var mine = myReply();
+  mine.sheet = STORE_KEY;
+
+  fetch(API + "/reply", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(mine)
+  }).then(function(r){
+    if(!r.ok) throw new Error("http " + r.status);
+    return r.json();
+  }).then(function(){
+    msg("Sent. The office has it.", true);
+    saving = false;
+    loadReplies();
+  }, function(){
+    saving = false;
+    btn.disabled = false;
+    msg("It did not send. Check your signal and press again.", false);
+  });
+}
+
+/* ---------- what other chefs already sent ---------- */
+function loadReplies(){
+  fetch(API + "/replies", {cache: "no-store"}).then(function(r){
+    return r.ok ? r.json() : [];
+  }).then(function(list){
+    if(Array.isArray(list)){ REPLIES = list; renderCard(); }
+  }, function(){});
+}
+
+/* ---------- events ---------- */
+listEl.addEventListener("click", function(e){
+  var b = e.target.closest(".q-btn"); if(!b) return;
+  goTo(Number(b.dataset.i));
+});
+jumpEl.addEventListener("change", function(){ goTo(Number(jumpEl.value)); });
+
+function goTo(i){
+  current = i; editMode = false; refresh();
+  if(window.matchMedia("(max-width:880px)").matches){
+    cardEl.scrollIntoView({behavior:"smooth", block:"start"});
+  } else {
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+}
+
+cardEl.addEventListener("click", function(e){
+  var t = e.target;
+  if(t.closest("#edit-btn")){ editMode = !editMode; renderCard(); return; }
+  if(t.closest("#reset-btn")){
+    QS[current].blocks = JSON.parse(JSON.stringify(MASTER[current].blocks));
+    saveDraft(); refresh(); return;
+  }
+  if(t.closest("#save-btn")){ doSave(); return; }
+  if(t.closest("#prev-btn")){ if(current > 0) goTo(current - 1); return; }
+  if(t.closest("#next-btn")){
+    if(current < QS.length-1) goTo(current + 1);
+    else window.scrollTo({top:0, behavior:"smooth"});
+    return;
+  }
+  var add = t.closest("[data-add]");
+  if(add){
+    QS[current].blocks[Number(add.dataset.add)].rows.push({item:"", qty:0, uom:"Kg", wastage:0});
+    saveDraft(); renderCard();
+    var ins = cardEl.querySelectorAll('.cell-in[data-f="item"]');
+    if(ins.length) ins[ins.length-1].focus();
+    return;
+  }
+  var del = t.closest("[data-del]");
+  if(del){
+    QS[current].blocks[Number(del.dataset.b)].rows.splice(Number(del.dataset.del),1);
+    saveDraft(); renderCard(); return;
+  }
+});
+
+cardEl.addEventListener("change", function(e){
+  var t = e.target;
+  if(t.type === "checkbox"){ t.closest("tr").classList.toggle("done", t.checked); return; }
+  if(t.type === "radio"){ ans(current).choice = t.value; saveDraft(); refresh(); return; }
+  if(t.classList.contains("cell-in")){
+    var r = QS[current].blocks[Number(t.dataset.b)].rows[Number(t.dataset.n)];
+    if(!r) return;
+    var f = t.dataset.f;
+    if(f === "item"){ r.item = t.value.trim(); }
+    else if(f === "wastage"){ r.wastage = num(t.value); }
+    else {
+      var tr = t.closest("tr");
+      var base = fromDisplay(num(tr.querySelector('[data-f="qty"]').value),
+                             tr.querySelector('[data-f="uom"]').value);
+      r.qty = base.qty; r.uom = base.uom;
+    }
+    saveDraft(); renderList();
+  }
+});
+
+cardEl.addEventListener("input", function(e){
+  if(e.target.id === "note"){ ans(current).note = e.target.value; saveDraft(); renderList(); return; }
+  if(e.target.id === "chef-name"){ CHEF = e.target.value; saveDraft(); return; }
+});
+
+searchEl.addEventListener("input", renderList);
+
+var themeBtn = document.getElementById("theme-btn");
+function prefersDark(){ return window.matchMedia("(prefers-color-scheme:dark)").matches; }
+function labelTheme(){
+  var t = document.documentElement.getAttribute("data-theme");
+  themeBtn.textContent = (t ? t === "dark" : prefersDark()) ? "Light mode" : "Dark mode";
+}
+themeBtn.addEventListener("click", function(){
+  var t = document.documentElement.getAttribute("data-theme");
+  var dark = t ? t === "dark" : prefersDark();
+  document.documentElement.setAttribute("data-theme", dark ? "light" : "dark");
+  labelTheme();
+});
+
+labelTheme();
+loadDraft();
+refresh();
+
+loadReplies();
+</script>
+</body>
+</html>

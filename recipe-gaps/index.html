@@ -697,7 +697,7 @@ function renderCard(){
       (options.length ? '<div class="opts">' + optHtml + "</div>" : "") +
       '<textarea class="note-in" id="note" placeholder="Write what you would change, and why. Weights, timings, anything the office missed.">' +
       esc(a.note) + "</textarea></div>" +
-    (last ? saveBarHtml() + inboxHtml() : "") +
+    saveBarHtml() + (last ? inboxHtml() : "") +
     '<div class="navrow">' +
       '<button class="ghost" id="prev-btn" type="button"' + (current === 0 ? " disabled" : "") + ">Previous</button>" +
       '<button class="solid" id="next-btn" type="button">' + (last ? "Go to the top" : "Next") + "</button>" +
@@ -709,7 +709,7 @@ function renderCard(){
 function saveBarHtml(){
   return '<div class="savebar">' +
     "<p>You have answered <b>" + doneCount() + " of " + QS.length + "</b>. " +
-      "Press the button and the office sees it. Nothing else to do.</p>" +
+      "Press the button and the office sees it. You can send now and send again later.</p>" +
     '<input id="chef-name" placeholder="Your name" value="' + esc(CHEF) +
       '" autocomplete="name" aria-label="Your name">' +
     '<button class="save-btn" id="save-btn" type="button">Send my answers to the office</button>' +

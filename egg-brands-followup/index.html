@@ -276,7 +276,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
 <script id="seed" type="application/json">
 {
  "brand": "Egg Brands - Follow Up",
- "store": "chef-check-egg-brands-followup-20260908-v1",
+ "store": "chef-check-egg-brands-followup-20260908-v2",
  "replies": [],
  "entries": [
   {
@@ -423,19 +423,19 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
   {
    "id": "e3",
    "cat": "The Egg Diner",
-   "short": "Yolk Toastie on toast",
-   "title": "Yolk Toastie - how many slices?",
-   "problem": "You said build it on toast, so the name fits. The bun comes out and Brioche Slice (Toast) goes in. We have put 2 slices in as a guess. Set the real number.",
-   "warn": "A pressed toastie can go soggy in a closed box. Please build one and let it sit 10 minutes before you sign this off.",
+   "short": "Yolk Toastie cheese",
+   "title": "Yolk Toastie - a cheese slice, and how many eggs?",
+   "problem": "The office had this wrong. The menu says a griddled toastie-style melt in a soft brioche bun, so the bun stays. Harsh has also said there is no shredded mozzarella in it. It is a slice of yellow cheddar. The build below is corrected. Please set the cheese count and the egg count.",
+   "warn": "The photo Harsh sent shows one fried egg. The recipe says two. Please tell us which is right.",
    "blocks": [
     {
-     "name": "Yolk Toastie, rebuilt on toast",
+     "name": "Yolk Toastie, corrected",
      "yield": "One plate",
-     "note": "Press it. The bun is gone.",
+     "note": "Griddled in the bun, toastie-style. Shredded mozzarella is out. A yellow cheddar slice is in.",
      "rows": [
       {
-       "item": "Brioche Slice (Toast)",
-       "qty": 2,
+       "item": "Brioche Bun 4.5 inch Sliced",
+       "qty": 1,
        "uom": "Piece",
        "wastage": 0
       },
@@ -446,16 +446,10 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
        "wastage": 5
       },
       {
-       "item": "Cheese Cheddar",
-       "qty": 0.025,
-       "uom": "Kg",
-       "wastage": 5
-      },
-      {
-       "item": "Cheese Mozzarella Shredded",
-       "qty": 0.015,
-       "uom": "Kg",
-       "wastage": 5
+       "item": "Cheese Slices Yellow",
+       "qty": 2,
+       "uom": "Piece",
+       "wastage": 0
       },
       {
        "item": "Butter",
@@ -481,7 +475,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
    "options": [
     {
      "k": "A",
-     "l": "Checked. 2 slices is right.",
+     "l": "Checked. 2 eggs and 2 cheese slices.",
      "d": "The office uses this build."
     },
     {
@@ -491,89 +485,13 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
     },
     {
      "k": "C",
-     "l": "Drop the mozzarella as well.",
-     "d": "Cheddar only. It reheats better, the same as the Cheese Smash."
+     "l": "One egg, one cheese slice.",
+     "d": "The build in the photo. The office cuts both to 1."
     }
    ],
    "asks": [
-    "Build one and leave it 10 minutes in a closed box. Does it hold?",
-    "Does the mozzarella stay or go?"
-   ]
-  },
-  {
-   "id": "e4",
-   "cat": "Eggs & Buns",
-   "short": "Spinach and feta",
-   "title": "Spinach & Feta Egg Bun - does the feta stay?",
-   "problem": "You picked the Korean spinach, Sigumchi Namul - SF, at 20 g. That side carries sesame oil and soy sauce. The dish is called Spinach & Feta. We did not get an answer on whether the feta stays with it.",
-   "warn": "Sesame and soy against feta is a clash. It is your call, but please taste the two together first.",
-   "blocks": [
-    {
-     "name": "Spinach & Feta Egg Bun, with the Korean spinach",
-     "yield": "One plate",
-     "note": "This is the build if the feta stays.",
-     "rows": [
-      {
-       "item": "Brioche Bun 4.5 inch Sliced",
-       "qty": 1,
-       "uom": "Piece",
-       "wastage": 0
-      },
-      {
-       "item": "Egg",
-       "qty": 2,
-       "uom": "Piece",
-       "wastage": 5
-      },
-      {
-       "item": "Sigumchi Namul - SF",
-       "qty": 0.02,
-       "uom": "Kg",
-       "wastage": 2,
-       "sf": true
-      },
-      {
-       "item": "Feta Cheese",
-       "qty": 0.03,
-       "uom": "Kg",
-       "wastage": 5
-      },
-      {
-       "item": "Caramelised Onions - SF",
-       "qty": 0.015,
-       "uom": "Kg",
-       "wastage": 0,
-       "sf": true
-      },
-      {
-       "item": "Butter",
-       "qty": 0.005,
-       "uom": "Kg",
-       "wastage": 5
-      }
-     ]
-    }
-   ],
-   "options": [
-    {
-     "k": "A",
-     "l": "The feta stays.",
-     "d": "No change to the name or the build."
-    },
-    {
-     "k": "B",
-     "l": "Drop the feta.",
-     "d": "The dish is renamed. Write the new name below."
-    },
-    {
-     "k": "C",
-     "l": "Keep the feta, drop the sesame and soy from the spinach.",
-     "d": "We write a plain wilted spinach instead of the Korean side."
-    }
-   ],
-   "asks": [
-    "Taste the namul and the feta together. Does it work?",
-    "Is 20 g of the namul enough to be seen in the bun?"
+    "Fried egg with a soft yolk, or cooked through?",
+    "Is the bun griddled on the flat top with butter, or in a press?"
    ]
   }
  ]

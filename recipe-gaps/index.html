@@ -275,8 +275,8 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
      ========================================================= -->
 <script id="seed" type="application/json">
 {
- "brand": "Recipe Gaps - Three Questions",
- "store": "chef-check-recipe-gaps-20260908-v2",
+ "brand": "Recipe Gaps - Two Questions",
+ "store": "chef-check-recipe-gaps-20260908-v3",
  "replies": [],
  "entries": [
   {
@@ -445,56 +445,6 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
     "Which dish is this portion served on?",
     "Is it an egg wash, or a wet batter, or both?",
     "Is it fried to order, or fried once and held?"
-   ]
-  },
-  {
-   "id": "e3",
-   "cat": "Amount we cannot cost",
-   "short": "Wing weight",
-   "title": "Chicken wings - what does one wing weigh?",
-   "problem": "25 wing dishes ask for wings by the piece, 5 pc or 8 pc. The wings are bought by the kilo, at 35.00 a kilo. Nobody has recorded what one wing weighs, so those 25 dishes show no wing cost at all. The figure below is the office guess.",
-   "warn": "This is the whole cost of a wing dish. A wrong weight moves the plate cost by more than a dirham.",
-   "blocks": [
-    {
-     "name": "Chicken Wings (Pre-cooked) - Chef Middle East flaming wings",
-     "yield": "One wing",
-     "note": "weigh 10 wings from the bag and divide by 10.",
-     "rows": [
-      {
-       "item": "WEIGHT - one wing straight out of the bag",
-       "qty": 0.03,
-       "uom": "Kg",
-       "wastage": 0
-      },
-      {
-       "item": "WEIGHT - one wing after frying",
-       "qty": 0.026,
-       "uom": "Kg",
-       "wastage": 0
-      }
-     ]
-    }
-   ],
-   "options": [
-    {
-     "k": "A",
-     "l": "Checked. 30 g a wing is right.",
-     "d": "The office will cost 8 wings at 8.40."
-    },
-    {
-     "k": "B",
-     "l": "Changed. I have weighed them and edited the figure.",
-     "d": "Put the real weight in the table, then pick this."
-    },
-    {
-     "k": "C",
-     "l": "The wings come in more than one size.",
-     "d": "Write the sizes and which dishes use which, in the note."
-    }
-   ],
-   "asks": [
-    "Is it always the same wing for every brand?",
-    "Is a wing one piece, or is a whole wing cut into two pieces?"
    ]
   }
  ]

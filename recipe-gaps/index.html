@@ -276,7 +276,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
 <script id="seed" type="application/json">
 {
  "brand": "Recipe Gaps - Three Questions",
- "store": "chef-check-recipe-gaps-20260908-v1",
+ "store": "chef-check-recipe-gaps-20260908-v2",
  "replies": [],
  "entries": [
   {
@@ -292,19 +292,61 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
      "yield": "Yield about 1 Kg of blend",
      "note": "one batch, not one bowl. Set a leaf to 0 if we do not use it.",
      "rows": [
-      {"item": "Lettuce Romaine", "qty": 0.5, "uom": "Kg", "wastage": 0},
-      {"item": "Lettuce Lollo Rosso", "qty": 0.25, "uom": "Kg", "wastage": 0},
-      {"item": "Lettuce Lollo Bionda", "qty": 0.25, "uom": "Kg", "wastage": 0},
-      {"item": "Baby Rocca", "qty": 0, "uom": "Kg", "wastage": 0},
-      {"item": "Lettuce Iceberg", "qty": 0, "uom": "Kg", "wastage": 0},
-      {"item": "YIELD - washed and trimmed weight out of this batch", "qty": 0.9, "uom": "Kg", "wastage": 0}
+      {
+       "item": "Lettuce Romaine",
+       "qty": 0.5,
+       "uom": "Kg",
+       "wastage": 0
+      },
+      {
+       "item": "Lettuce Lollo Rosso",
+       "qty": 0.25,
+       "uom": "Kg",
+       "wastage": 0
+      },
+      {
+       "item": "Lettuce Lollo Bionda",
+       "qty": 0.25,
+       "uom": "Kg",
+       "wastage": 0
+      },
+      {
+       "item": "Baby Rocca",
+       "qty": 0,
+       "uom": "Kg",
+       "wastage": 0
+      },
+      {
+       "item": "Lettuce Iceberg",
+       "qty": 0,
+       "uom": "Kg",
+       "wastage": 0
+      },
+      {
+       "item": "YIELD - washed and trimmed weight out of this batch",
+       "qty": 0.9,
+       "uom": "Kg",
+       "wastage": 0
+      }
      ]
     }
    ],
    "options": [
-    {"k": "A", "l": "Checked. The leaves and amounts are right.", "d": "The office will use these figures as they are."},
-    {"k": "B", "l": "Changed. I have edited the amounts above.", "d": "Press Change amounts, correct the figures, then pick this."},
-    {"k": "C", "l": "We do not make this at all any more.", "d": "The office will take Mixed Greens out of the recipes. Say in the note what goes in the bowl instead."}
+    {
+     "k": "A",
+     "l": "Checked. The leaves and amounts are right.",
+     "d": "The office will use these figures as they are."
+    },
+    {
+     "k": "B",
+     "l": "Changed. I have edited the amounts above.",
+     "d": "Correct the figures in the table, then pick this."
+    },
+    {
+     "k": "C",
+     "l": "We do not make this at all any more.",
+     "d": "The office will take Mixed Greens out of the recipes. Say in the note what goes in the bowl instead."
+    }
    ],
    "asks": [
     "Is rocket (rocca) in the blend, yes or no?",
@@ -316,35 +358,93 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
    "id": "e2",
    "cat": "Made in the kitchen - no recipe on record",
    "short": "Breaded Calamari",
-   "title": "Breaded Calamari Rings - what is the build?",
-   "problem": "You told us we bread the squid tubes ourselves. So we do not buy frozen breaded rings. But no breading recipe was ever written down. The amounts below are the office guess for 1 Kg of raw squid. Correct them.",
+   "title": "Breaded Calamari Rings - what goes into one portion?",
+   "problem": "You told us we bread the squid tubes ourselves. So we do not buy frozen breaded rings. But no recipe was ever written down. The amounts below are the office guess for ONE PORTION, the calamari that goes on one dish. Not a batch. Correct them.",
    "blocks": [
     {
-     "name": "Calamari Rings Breaded - SF",
-     "yield": "One batch from 1 Kg of raw squid",
-     "note": "one batch, not one portion. Set a line to 0 if we do not use it.",
+     "name": "Calamari Rings Breaded - one portion",
+     "yield": "One portion, as it goes on the plate",
+     "note": "one portion, not a batch. Set a line to 0 if we do not use it.",
      "rows": [
-      {"item": "Squid Tubes", "qty": 1, "uom": "Kg", "wastage": 0},
-      {"item": "All Purpose Flour (Maida)", "qty": 0.08, "uom": "Kg", "wastage": 0},
-      {"item": "Cornflour", "qty": 0.04, "uom": "Kg", "wastage": 0},
-      {"item": "Egg", "qty": 2, "uom": "Piece", "wastage": 0},
-      {"item": "Tempura Batter Mix", "qty": 0.1, "uom": "Kg", "wastage": 0},
-      {"item": "Panko Breadcrumbs", "qty": 0.15, "uom": "Kg", "wastage": 0},
-      {"item": "Salt", "qty": 0.008, "uom": "Kg", "wastage": 0},
-      {"item": "Cooking Oil taken up in the fryer", "qty": 0.06, "uom": "L", "wastage": 0},
-      {"item": "YIELD - breaded weight out of 1 Kg of squid", "qty": 1.3, "uom": "Kg", "wastage": 0}
+      {
+       "item": "Squid Tubes, raw, in one portion",
+       "qty": 0.12,
+       "uom": "Kg",
+       "wastage": 0
+      },
+      {
+       "item": "All Purpose Flour (Maida)",
+       "qty": 0.01,
+       "uom": "Kg",
+       "wastage": 0
+      },
+      {
+       "item": "Cornflour",
+       "qty": 0.005,
+       "uom": "Kg",
+       "wastage": 0
+      },
+      {
+       "item": "Egg - share of one egg per portion",
+       "qty": 0.25,
+       "uom": "Piece",
+       "wastage": 0
+      },
+      {
+       "item": "Tempura Batter Mix",
+       "qty": 0.012,
+       "uom": "Kg",
+       "wastage": 0
+      },
+      {
+       "item": "Panko Breadcrumbs",
+       "qty": 0.018,
+       "uom": "Kg",
+       "wastage": 0
+      },
+      {
+       "item": "Salt",
+       "qty": 0.001,
+       "uom": "Kg",
+       "wastage": 0
+      },
+      {
+       "item": "Cooking Oil taken up in the fryer",
+       "qty": 0.008,
+       "uom": "L",
+       "wastage": 0
+      },
+      {
+       "item": "YIELD - breaded weight of one portion",
+       "qty": 0.156,
+       "uom": "Kg",
+       "wastage": 0
+      }
      ]
     }
    ],
    "options": [
-    {"k": "A", "l": "Checked. The build is right.", "d": "The office will use these figures as they are."},
-    {"k": "B", "l": "Changed. I have edited the amounts above.", "d": "Press Change amounts, correct the figures, then pick this."},
-    {"k": "C", "l": "We do not make breaded calamari.", "d": "The office will take the item off the buying list."}
+    {
+     "k": "A",
+     "l": "Checked. One portion is right.",
+     "d": "The office will use these figures as they are."
+    },
+    {
+     "k": "B",
+     "l": "Changed. I have edited the amounts above.",
+     "d": "Correct the figures in the table, then pick this."
+    },
+    {
+     "k": "C",
+     "l": "We do not make breaded calamari.",
+     "d": "The office will take the item off the buying list."
+    }
    ],
    "asks": [
+    "How many rings are in one portion?",
+    "Which dish is this portion served on?",
     "Is it an egg wash, or a wet batter, or both?",
-    "How many rings does one batch make?",
-    "Is it fried from raw to order, or fried once and held?"
+    "Is it fried to order, or fried once and held?"
    ]
   },
   {
@@ -360,15 +460,37 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);cursor:pointe
      "yield": "One wing",
      "note": "weigh 10 wings from the bag and divide by 10.",
      "rows": [
-      {"item": "WEIGHT - one wing straight out of the bag", "qty": 0.03, "uom": "Kg", "wastage": 0},
-      {"item": "WEIGHT - one wing after frying", "qty": 0.026, "uom": "Kg", "wastage": 0}
+      {
+       "item": "WEIGHT - one wing straight out of the bag",
+       "qty": 0.03,
+       "uom": "Kg",
+       "wastage": 0
+      },
+      {
+       "item": "WEIGHT - one wing after frying",
+       "qty": 0.026,
+       "uom": "Kg",
+       "wastage": 0
+      }
      ]
     }
    ],
    "options": [
-    {"k": "A", "l": "Checked. 30 g a wing is right.", "d": "The office will cost 8 wings at 8.40."},
-    {"k": "B", "l": "Changed. I have weighed them and edited the figure.", "d": "Press Change amounts, put in the real weight, then pick this."},
-    {"k": "C", "l": "The wings come in more than one size.", "d": "Write the sizes and which dishes use which, in the note."}
+    {
+     "k": "A",
+     "l": "Checked. 30 g a wing is right.",
+     "d": "The office will cost 8 wings at 8.40."
+    },
+    {
+     "k": "B",
+     "l": "Changed. I have weighed them and edited the figure.",
+     "d": "Put the real weight in the table, then pick this."
+    },
+    {
+     "k": "C",
+     "l": "The wings come in more than one size.",
+     "d": "Write the sizes and which dishes use which, in the note."
+    }
    ],
    "asks": [
     "Is it always the same wing for every brand?",
@@ -407,7 +529,7 @@ var jumpEl = document.getElementById("jump");
 var cardEl = document.getElementById("card");
 var progEl = document.getElementById("prog");
 var searchEl = document.getElementById("search");
-var current = 0, editMode = false;
+var current = 0, editMode = true;   /* amounts are editable the moment the card opens */
 var ANS = {};
 var CHEF = "";
 var API = "https://qogrhokcmyxbicihcckf.supabase.co/functions/v1/chef/recipe-gaps";  /* where the answers go */
@@ -699,7 +821,7 @@ listEl.addEventListener("click", function(e){
 jumpEl.addEventListener("change", function(){ goTo(Number(jumpEl.value)); });
 
 function goTo(i){
-  current = i; editMode = false; refresh();
+  current = i; editMode = true; refresh();   /* every card opens editable */
   if(window.matchMedia("(max-width:880px)").matches){
     cardEl.scrollIntoView({behavior:"smooth", block:"start"});
   } else {
